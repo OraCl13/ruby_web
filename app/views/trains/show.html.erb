@@ -1,10 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @train %>
-
 <div>
-  <%= link_to "Edit this train", edit_train_path(@train) %> |
-  <%= link_to "Back to trains", trains_path %>
+  <strong>Number of train: </strong>
+  <%= @train.number %>
+  <p> </p>
+  <strong>Station of this train:</strong>
+  <% if @train.current_station.present? %>
+    <%= @train.current_station.title %>
+  <% else %>
+    <p>Train dont have current station</p>
+  <% end %>
 
-  <%= button_to "Destroy this train", @train, method: :delete %>
+  <p>
+    <strong>Route</strong>
+    <% if @train.rout.present?  %>
+      <%= @train.rout.name %>
+    <% else %>
+      Don`t know
+    <% end %>
+  </p>
+
+  <p><%= button_to "Destroy this train", @train, method: :delete %></p>
+  <p><%= link_to "Back to trains", trains_path %></p>
 </div>

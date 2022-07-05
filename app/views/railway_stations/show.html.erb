@@ -2,6 +2,17 @@
 
 <%= render @railway_station %>
 
+<% if @railway_station.routs.empty? %>
+  <p>There are not routs on this station</p>
+<% else %>
+  <p>Routes: </p>
+  <ul>
+    <% @railway_station.routs.each do |route| %>
+      <li><%= route.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <div>
   <%= link_to "Edit this railway station", edit_railway_station_path(@railway_station) %> |
   <%= link_to "Back to railway stations", railway_stations_path %>

@@ -3,6 +3,28 @@
 <%= render @rout %>
 
 <div>
+  <strong>Trains on this rout:</strong>
+  <% if @trains_for_rout.empty? %>
+    <p>We dont have trains on this rout</p>
+  <% else %>
+    <ul>
+      <% @trains_for_rout.each do |train| %>
+        <li><%= train.number %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <strong>Stations on this rout:</strong>
+  <% if @rout.railway_stations.empty? %>
+    <p>We dont have stations on this rout</p>
+  <% else %>
+    <ul>
+      <% @rout.railway_stations.each do |station| %>
+        <li><%= station.title %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= link_to "Edit this route", edit_rout_path(@rout) %> |
   <%= link_to "Back to route", routs_path %>
 

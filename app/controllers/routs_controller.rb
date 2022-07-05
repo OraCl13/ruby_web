@@ -1,5 +1,6 @@
 class RoutsController < ApplicationController
   before_action :set_rout, only: %i[ show edit update destroy ]
+  before_action :find_all_trains, only: %i[ show ]
 
   def index
     @routs = Rout.all
@@ -51,5 +52,9 @@ class RoutsController < ApplicationController
 
   def rout_params
     params.require(:rout).permit(:name)
+  end
+
+  def find_all_trains
+    @trains_for_rout = Train.where(rout_id: params[:id])
   end
 end

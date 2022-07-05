@@ -1,15 +1,5 @@
 <%= form_with(model: rout) do |form| %>
-  <% if rout.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(rout.errors.count, "error") %> prohibited this train from being saved:</h2>
-
-      <ul>
-        <% rout.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'common/errors', resource: rout %>
 
   <div>
     <%= form.label :name, style: "display: block" %>
