@@ -1,0 +1,3 @@
+module VansHelper
+end
+
