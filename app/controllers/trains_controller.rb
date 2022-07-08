@@ -50,7 +50,7 @@ class TrainsController < ApplicationController
     end
 
     def train_params
-      values = params.require(:train).permit(:number, :current_station, :rout)
+      values = params.require(:train).permit(:number, :current_station, :rout, :order_van)
       values['current_station'] = find_station_by_id(values['current_station'])#number_field
       values['rout'] = find_rout_by_id(values['rout'])#number_field
       values

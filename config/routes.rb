@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
   resources :railway_stations
   resources :routs
+  resources :vans, only: [:show]
 
   root "railway_stations#index"
 end

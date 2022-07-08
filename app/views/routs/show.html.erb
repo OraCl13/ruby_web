@@ -19,8 +19,8 @@
     <p>We dont have stations on this rout</p>
   <% else %>
     <ul>
-      <% @rout.railway_stations.each do |station| %>
-        <li><%= station.title %></li>
+      <% @rout.railway_stations_routs.order_by_station_index_desc.each do |station_rout| %>
+        <li><%= station_rout.station_index %> <%= station_rout.railway_station.title %></li>
       <% end %>
     </ul>
   <% end %>
@@ -30,3 +30,10 @@
 
   <%= button_to "Destroy this route", @rout, method: :delete %>
 </div>
+
+<!--<script>-->
+<!--    if(document.getElementById('sorting').clicked === true)-->
+<!--    {-->
+<!--        alert("button was clicked");-->
+<!--    }-->
+<!--</script>-->

@@ -22,23 +22,24 @@
 
   <div>
     <strong>Vans</strong>
+    <% if @train.order_van %>
+      <p><strong>From head</strong></p>
+    <% else %>
+      <p><strong>From tail</strong></p>
+    <% end %>
     <% if @train.vans.present?  %>
-      <p><storng>Business count: </storng> <%= @train.vans.where(kind: :business).count %></p>
-      <p><storng>Econom count: </storng> <%= @train.vans.where(kind: :econom).count %></p>
       <table>
         <thead>
         <tr>
           <th>Type</th>
-          <th>Top Seats</th>
-          <th>Bottom Seats</th>
+          <th>Number</th>
         </tr>
         </thead>
         <tbody>
-        <% @train.vans.each do |van| %>
+        <% @train.vans.order("number #{@train.order_van ? 'ASC' : 'DESC'}").each do |van| %>
           <tr>
-            <td><%= van.kind %></td>
-            <td><%= van.top_seats %></td>
-            <td><%= van.bottom_seats %></td>
+            <td><%= link_to "#{van.number}", van_path(van) %></td>
+            <td><%= van.type %></td>
           </tr>
         <% end %>
         </tbody>

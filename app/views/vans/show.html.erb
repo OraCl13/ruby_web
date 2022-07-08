@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @van.number %>
+</p>
+
+<% if @van.top_seats %>
+  <p>
+    <strong>Top Seats</strong>
+    <%= @van.top_seats %>
+  </p>
+<% end %>
+<% if @van.bottom_seats %>
+  <p>
+    <strong>Bottom Seats</strong>
+    <%= @van.bottom_seats %>
+  </p>
+<% end %>
+<% if @van.side_top_seats %>
+  <p>
+    <strong>Side Top Seats</strong>
+    <%= @van.side_top_seats %>
+  </p>
+<% end %>
+<% if @van.side_bottom_seats %>
+  <p>
+    <strong>Side Botom Seats</strong>
+    <%= @van.side_bottom_seats %>
+  </p>
+<% end %>
+<% if @van.econom_seats %>
+  <p>
+    <strong>Econom Seats</strong>
+    <%= @van.econom_seats %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', train_path(@van.train) %>
