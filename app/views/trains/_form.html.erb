@@ -15,6 +15,11 @@
     <%= form.collection_select :rout, Rout.all, :id, :name %>
   </div>
 
+  <div class="field">
+    <%= form.label 'Order from head' %>
+    <%= form.select :order_van, [true, false] %>
+  </div>
+
   <div>
     <%= form.submit "#{train.new_record? ? 'Create' : 'Update'}"%>
   </div>
