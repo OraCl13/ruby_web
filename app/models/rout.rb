@@ -1,12 +1,23 @@
 class Rout < ApplicationRecord
   has_many :trains
   has_many :railway_stations_routs, dependent: :destroy
-  has_many :railway_stations, through: :railway_stations_routs
+  has_many :railway_stations, through: :railway_stations_routs, dependent: :destroy
 
   validate :stations_count
   validates :name , presence: true
 
-  after_validation :set_name
+  before_validation :set_name
+
+  # def self.search_for_routs(start_station, end_station)
+  #   Rout.where(name: "#{start_station.title} - #{end_station.title}") # TODO
+  # end
+
+  def self.search_for_routs(start_station, end_station)
+    Rout.all.map do |rout| rout if rout.railway_stations.include?(start_station) &&
+      rout.railway_stations.include?(end_station)
+    end
+  end
+
 
   def set_name
     self.name = "#{railway_stations.first.title} - #{railway_stations.last.title}"

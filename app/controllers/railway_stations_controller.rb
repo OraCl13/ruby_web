@@ -1,5 +1,5 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: %i[ show edit update destroy ]
+  before_action :set_railway_station, only: %i[ show edit update destroy update_position ]
 
   def index
     @railway_stations = RailwayStation.all
@@ -35,6 +35,12 @@ class RailwayStationsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
       end
     end
+  end
+
+  def update_position
+    @rout = Rout.find(params[:rout_id])
+    @railway_station.update_position(@rout, params[:station_index])
+    redirect_to @rout
   end
 
   def destroy
