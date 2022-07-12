@@ -1,5 +1,6 @@
-<%= form_for([@train, @van.becomes(Van)]) do |f| %>
+<%= form_for([@train, @van.becomes(Van)], local: true, data: { turbo: false })  do |f| %>
   <%= render 'common/errors', resource: @van %>
+
   <p>Coupe: bottom_seats&top_seats </p>
   <p>Plac: bottom_seats&top_seats side_top_seats&side_bottom_seats</p>
   <p>Sv: bottom_seats </p>

@@ -1,0 +1,23 @@
+<h2>Routs</h2>
+<% if !@routs.empty? %>
+<ul>
+  <% @routs.each do |rout| %>
+    <li>
+      <strong>Route <%= rout.id %></strong>
+      <p>Outgo time: ###</p>
+      <p>Arrive time: ###</p>
+      <h3>Trains</h3>
+      <ul>
+        <% rout.trains.each do |train| %>
+          <li>
+            <p><%= train.number %></p>
+            <p><%= link_to 'Buy ticket', new_train_ticket_path(train, start_station: @start_station, end_station: @end_station) %></p>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
+<% else %>
+  <h3> There are no such routs</h3>
+<% end %>

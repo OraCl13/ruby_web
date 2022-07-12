@@ -5,6 +5,7 @@ class RailwayStationsRout < ActiveRecord::Base
   validates :railway_station_id, uniqueness: { scope: :rout_id }
   validates :station_index, uniqueness: { scope: :rout_id }
 
+
   scope :order_by_station_index, -> {order(station_index: :asc)}
   scope :order_by_station_index_desc, -> {order(station_index: :desc)}
 
