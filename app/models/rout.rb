@@ -6,7 +6,7 @@ class Rout < ApplicationRecord
   validate :stations_count
   validates :name , presence: true
 
-  before_validation :set_name
+  after_validation :set_name
 
   # def self.search_for_routs(start_station, end_station)
   #   Rout.where(name: "#{start_station.title} - #{end_station.title}") # TODO
@@ -15,7 +15,7 @@ class Rout < ApplicationRecord
   def self.search_for_routs(start_station, end_station)
     Rout.all.map do |rout| rout if rout.railway_stations.include?(start_station) &&
       rout.railway_stations.include?(end_station)
-    end
+    end.compact
   end
 
 

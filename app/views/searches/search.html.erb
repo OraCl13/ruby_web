@@ -1,4 +1,5 @@
 <h2>Routs</h2>
+<% if !@routs.empty? %>
 <ul>
   <% @routs.each do |rout| %>
     <li>
@@ -17,3 +18,6 @@
     </li>
   <% end %>
 </ul>
+<% else %>
+  <h3> There are no such routs</h3>
+<% end %>
