@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @railway_station %>
+
+<% if @railway_station.routs.empty? %>
+  <p>There are not routs on this station</p>
+<% else %>
+  <p>Routes: </p>
+  <ul>
+    <% @railway_station.routs.each do |route| %>
+      <li><%= route.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div>
+  <%= link_to "Edit this railway station", edit_admin_railway_station_path(@railway_station) %> |
+  <%= link_to "Back to railway stations", admin_railway_stations_path %>
+
+  <%= button_to "Destroy this railway station", [:admin, @railway_station], method: :delete %>
+</div>

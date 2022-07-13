@@ -1,0 +1,26 @@
+<%= form_with(model: [:admin, train]) do |form| %>
+  <%= render 'common/errors', resource: train %>
+  <div>
+    <%= form.label :number, style: "display: block" %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_station, 'Current station' %>
+    <%= form.collection_select :current_station, RailwayStation.all, :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rout, 'Rout to stick' %>
+    <%= form.collection_select :rout, Rout.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Order from head' %>
+    <%= form.select :order_van, [true, false] %>
+  </div>
+
+  <div>
+    <%= form.submit "#{train.new_record? ? 'Create' : 'Update'}"%>
+  </div>
+<% end %>
