@@ -1,0 +1,17 @@
+uk:
+  common:
+    back: 'Назад'
+    errors: 'при заповнені форми виникли певні помилки'
+  railway_stations:
+    new:
+      title: 'Нова станція'
+    form:
+      submit: '%{action} станцію'
+  trains:
+    new:
+      title: 'Новий поїзд'
+    form:
+      submit: '%{action} поїзд'
+  routs:
+    form:
+      submit: '%{action} маршрут'

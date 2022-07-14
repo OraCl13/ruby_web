@@ -6,12 +6,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :current_station, 'Current station' %>
+    <%= form.label :current_station %>
     <%= form.collection_select :current_station, RailwayStation.all, :id, :title %>
   </div>
 
   <div class="field">
-    <%= form.label :rout, 'Rout to stick' %>
+    <%= form.label :rout%>
     <%= form.collection_select :rout, Rout.all, :id, :name %>
   </div>
 
@@ -21,6 +21,6 @@
   </div>
 
   <div>
-    <%= form.submit "#{train.new_record? ? 'Create' : 'Update'}"%>
+    <%= form.submit t('trains.form.submit', action: @train ? 'Створити' : 'Редагувати') %>
   </div>
 <% end %>
