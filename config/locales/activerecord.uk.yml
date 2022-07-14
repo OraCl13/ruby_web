@@ -1,0 +1,22 @@
+uk:
+  activerecord:
+    models:
+      railway_station: 'Станція'
+      train: 'Поїзд'
+    attributes:
+      railway_station:
+        title: 'Назва'
+      train:
+        number: 'Номер'
+        current_station: 'Поточна станція'
+      rout:
+        name: 'Назва'
+        railway_station_ids: 'Доступні станції'
+    errors:
+      messages:
+        blank: ' не може бути пустим'
+      models:
+        railway_station:
+          attributes:
+            title:
+              blank: ' має бути вказаним'
