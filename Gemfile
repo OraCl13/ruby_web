@@ -50,6 +50,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'jquery-rails'
 
+gem 'rails_12factor'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
