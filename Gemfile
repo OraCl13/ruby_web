@@ -9,7 +9,6 @@ gem "rails", "~> 7.0.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use sqlite3 as the database for Active Record
 gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -50,7 +49,7 @@ gem 'twitter-bootstrap-rails'
 
 gem 'jquery-rails'
 
-gem 'rails_12factor'
+# gem 'rails_12factor'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -62,6 +61,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'pry'
+
 end
 
 group :development do
