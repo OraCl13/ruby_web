@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_13_075556) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_14_111614) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "railway_stations", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -32,10 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_075556) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "train_id"
-    t.integer "base_station_id"
-    t.integer "end_station_id"
+    t.bigint "user_id"
+    t.bigint "train_id"
+    t.bigint "base_station_id"
+    t.bigint "end_station_id"
     t.string "user_first_name"
     t.string "user_last_name"
     t.string "user_middle_name"
@@ -50,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_075556) do
     t.string "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "current_station_id"
+    t.bigint "current_station_id"
     t.integer "rout_id"
     t.boolean "order_van", default: false
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
@@ -78,13 +81,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_075556) do
   create_table "vans", force: :cascade do |t|
     t.integer "top_seats"
     t.integer "bottom_seats"
-    t.integer "train_id"
+    t.bigint "train_id"
     t.integer "number"
     t.integer "side_top_seats"
     t.integer "side_bottom_seats"
     t.integer "econom_seats"
     t.string "type"
     t.index ["train_id"], name: "index_vans_on_train_id"
+    t.index ["type"], name: "index_vans_on_type"
   end
 
 end
