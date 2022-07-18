@@ -82,7 +82,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :mailgun
 
-  config.action_mailer.mailgun_settings = { api_token: ENV['MAILGUN_API_TOKEN'] }
+  config.action_mailer.mailgun_settings = { api_token: ENV['MAILGUN_API_TOKEN'], domain: 'powerful-sands-05753.herokuapp.com' }
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
