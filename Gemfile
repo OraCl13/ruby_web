@@ -49,6 +49,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'jquery-rails'
 
+gem 'mailgun-rails'
+
 # gem 'rails_12factor'
 
 # Use Sass to process CSS

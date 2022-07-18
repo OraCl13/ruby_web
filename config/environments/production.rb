@@ -78,6 +78,10 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  config.action_mailer.default_url_options = { host: 'intense-tundra-27958.herokuapp.com' }
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = { api_token: ENV['MAILGUN_API_TOKEN'] }
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
