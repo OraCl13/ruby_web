@@ -87,9 +87,9 @@ Rails.application.configure do
     :port      => ENV['MAILGUN_SMTP_PORT'],
     :user_name => 'ostapko2003o@gmail.com',
     :password  => ENV['MAILGUN_SMTP_PASSWORD'],
-    :authentication => ENV['MAILGUN_SMTP_LOGIN'],
+    :authentication => 'login',
     :domain => ENV['MAILGUN_DOMAIN'],
-    :enable_starttls_auto => true# ENV['MAILGUN_DOMAIN']
+    :enable_starttls_auto => true # ENV['MAILGUN_DOMAIN']
   }
 
   # Use a different logger for distributed setups.
