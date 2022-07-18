@@ -52,8 +52,6 @@ gem 'jquery-rails'
 gem 'rails_12factor'
 
 gem 'mailgun-rails'
-
-gem 'mailgunner'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
