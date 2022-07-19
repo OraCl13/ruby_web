@@ -1,6 +1,11 @@
 <tr>
-  <td><%= train.number %></td>
+  <td id="train_number_<%= train.id %>">
+    <%= train.number %>
+  </td>
   <td><%= link_to "Show train", [:admin, train] %></td>
-  <td><%= link_to "Edit this train", edit_admin_train_path(train) %></td>
+  <%= link_to "Edit this train", '', class: 'edit_train', data: { train_id: train.id} %>
+
+  <%= render 'admin/trains/form', train: train, hidden: true %>
+
   <p></p>
 </tr>
