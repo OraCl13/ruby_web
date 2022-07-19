@@ -79,10 +79,22 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.default_url_options = { host: 'powerful-sands-05753.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = { api_key: ENV['MAILGUN_API_KEY'] ,domain: ENV['MAILGUN_DOMAIN'] }
+  ActionMailer::Base.smtp_settings = {
+    port: 587,
+    address: 'smtp.sendgrid.net',
+    user_name: 'apikey',
+    password: ENV['SENDGRID_API_KEY'],
+    domain: 'powerful-sands-05753.herokuapp.com',
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = { api_key: ENV['MAILGUN_API_KEY'] ,domain: ENV['MAILGUN_DOMAIN'] }
+  #
   #  ActionMailer::Base.delivery_method = :smtp
   # ActionMailer::Base.smtp_settings = {
   #   :port           => ENV['MAILGUN_SMTP_PORT'],
