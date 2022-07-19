@@ -1,7 +1,7 @@
 <h1>Find Rout</h1>
 
 <div>
-  <%= form_tag search_path, local: true, data: { turbo: false } do %>
+  <%= form_tag search_path, local: true, data: { turbo: false }, class: 'search_form' do %>
     <div>
       <p>First Station</p>
       <%= select_tag :start_station, options_from_collection_for_select(@stations, :id, :title) %>

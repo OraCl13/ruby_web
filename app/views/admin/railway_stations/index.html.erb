@@ -6,6 +6,10 @@
   <% @railway_stations.each do |railway_station| %>
     <%= render railway_station %>
     <p>
+      <%= link_to "Edit this railway station", '', class: 'edit_station', data: { station_id: railway_station.id} %>
+
+      <%= render 'admin/railway_stations/form', station: railway_station, hidden: true %>
+
       <%= link_to "Show this railway station", [:admin, railway_station] %>
     </p>
   <% end %>
